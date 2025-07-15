@@ -1,0 +1,144 @@
+1]
+  import java.text.*;
+import java.util.*;
+public class Dateandtime {
+
+    public static void main(String[] argv)
+    {
+        
+        DateFormat DFormat
+            = DateFormat.getDateInstance();
+
+        
+        String str = DFormat.format(new Date());
+
+        
+        System.out.println(
+            "The original timezone is: "
+            + DFormat.getTimeZone()
+                  .getDisplayName());
+
+        TimeZone time_zone
+            = TimeZone.getTimeZone("GMT");
+
+        
+        DFormat.setTimeZone(time_zone);
+
+        
+        System.out.println(
+            "New TimeZone is: "
+            + DFormat.getTimeZone()
+                  .getDisplayName());
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------
+2]
+  import java.util.Date;
+public class basicdate {
+    public static void main(String args[]){
+        Date date = new Date();
+        System.out.println(date.toString());
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------
+3]
+  import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class dateandtimeconverter {
+  
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        try {
+
+            System.out.print("Enter date and time (yyyy-MM-dd HH:mm): ");
+            String dateTimeInput = scanner.nextLine();
+            LocalDateTime localDateTime = LocalDateTime.parse(dateTimeInput, inputFormatter);
+
+          
+            System.out.print("Enter source timezone (e.g., Asia/Kolkata): ");
+            String sourceZone = scanner.nextLine();
+
+          
+            System.out.print("Enter target timezone (e.g., Europe/London): ");
+            String targetZone = scanner.nextLine();
+
+       
+            ZonedDateTime sourceZoned = localDateTime.atZone(ZoneId.of(sourceZone));
+            ZonedDateTime targetZoned = sourceZoned.withZoneSameInstant(ZoneId.of(targetZone));
+
+          
+            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm a z");
+
+            
+            System.out.println("\nSource Time: " + sourceZoned.format(outputFormatter));
+            System.out.println("Converted Time: " + targetZoned.format(outputFormatter));
+
+        } catch (Exception e) {
+            System.out.println("\n⚠ Invalid input. Make sure date/time format and timezone are correct.");
+        }
+
+        scanner.close();
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------
+4]
+  import java.util.*;
+public class differnceintime {
+    
+   public static void main(String args[]) {
+      try {
+         long start = System.currentTimeMillis( );
+         System.out.println(new Date( ) + "\n");
+         
+         Thread.sleep(5*60*10);
+         System.out.println(new Date( ) + "\n");
+         
+         long end = System.currentTimeMillis( );
+         long diff = end - start;
+         System.out.println("Difference is : " + diff);
+      } catch (Exception e) {
+         System.out.println("Got an exception!");
+      }
+   }
+  
+}
+---------------------------------------------------------------------------------------------------------------------------------
+5]
+  import java.util.*;
+public class leapyear {
+
+   public static void main(String args[]) {
+      String months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", 
+         "Oct", "Nov", "Dec"};
+      
+      int year;
+   
+      
+      GregorianCalendar gcalendar = new GregorianCalendar();
+      
+      // Display current time and date information.
+      System.out.print("Date: ");
+      System.out.print(months[gcalendar.get(Calendar.MONTH)]);
+      System.out.print(" " + gcalendar.get(Calendar.DATE) + " ");
+      System.out.println(year = gcalendar.get(Calendar.YEAR));
+      System.out.print("Time: ");
+      System.out.print(gcalendar.get(Calendar.HOUR) + ":");
+      System.out.print(gcalendar.get(Calendar.MINUTE) + ":");
+      System.out.println(gcalendar.get(Calendar.SECOND));
+
+      // Test if the current year is a leap year
+      if(gcalendar.isLeapYear(year)) {
+         System.out.println("The current year is a leap year");
+      }else {
+         System.out.println("The current year is not a leap year");
+      }
+   }
+}
