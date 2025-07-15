@@ -1,0 +1,185 @@
+1]
+public class Mavenproject1 {
+
+    
+  public static void main(String[] args) {
+
+    // create a string
+    String name = "Check the lenght";
+    System.out.println("String: " + name);
+
+    // get the length of greet
+    int length = name.length();
+    System.out.println("Length: " + length);
+  }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+
+2]
+public class comparetwostrings {
+    public static void main(String[] args){
+        // 3 strings to compare 
+        String first = "google";
+        String second = "google";
+        String third = "microsoft";
+       // compare 1st and 2nd
+       boolean result1 = first.equals(second);
+       System.out.println("1st and 2nd :" + result1);
+       // compare 2nd and 3rd
+       boolean result2 = second.equals(third);
+       System.out.println("2nd and 3rd :" + result2);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+3]
+public class comparewithoutcasesen {
+  
+    public static void main(String[] args) {
+        String str1 = "SENSEI";
+        String str2 = "SenSei";
+        
+        if (str1.compareToIgnoreCase(str2) == 0) {
+            System.out.println("Both Strings are equal");
+        }
+        else {
+            System.out.println("Both Strings are not equal");
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+4]
+public class doesitcontain {
+   
+  public static void main(String[] args) {
+    String str1 = "Learn Java";
+    String str2 = "Java";
+    String str3 = "java";
+    Boolean result;
+    
+    // true because "Learn Java" contains "Java"
+    if (str1.contains(str2)) {
+
+      System.out.println(str1 + " contains " + str2);
+    }
+    else {
+      System.out.println(str1 + " doesn't contains " + str2);
+    }
+    
+    // contains() is case-sensitive
+    if (str1.contains(str3)) {
+
+      System.out.println(str1 + " contains " + str3);
+    }
+    else {
+      System.out.println(str1 + " doesn't contain " + str3);
+    }
+  }
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+5]
+public class jointwostrings {
+   
+  public static void main(String[] args) {
+
+    // create first string
+    String first = "Harsha";
+    System.out.println("First String: " + first);
+
+    // create second
+    String second = "Vardhan";
+    System.out.println("Second String: " + second);
+
+    // join two strings
+    String joinedString = first.concat(second);
+    System.out.println("Joined String: " + joinedString);
+  }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+6]
+public class palindeome {
+ 
+	public static void main(String[] args) {
+		
+		checkPalindromeString("abc");
+		checkPalindromeString("abcba");
+		checkPalindromeString("hahah");
+	}
+
+	private static void checkPalindromeString(String input) {
+		boolean result = true;
+		int length = input.length();
+		for(int i=0; i < length/2; i++) {
+			if(input.charAt(i) != input.charAt(length-i-1)) {
+				result = false;
+				break;
+			}
+		}
+		System.out.println(input + " is palindrome = "+result);
+		
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+7]
+public class FindNonRepeatingChar {
+    public static void main(String[] args) {
+
+		System.out.println(printFirstNonRepeatingChar("abcaabcdedxy"));
+		System.out.println(printFirstNonRepeatingChar("abca"));
+		System.out.println(printFirstNonRepeatingChar("aaa"));
+
+	}
+
+	private static Character printFirstNonRepeatingChar(String string) {
+		char[] chars = string.toCharArray();
+
+		List<Character> discardedChars = new ArrayList<>();
+
+		for (int i = 0; i < chars.length; i++) {
+			char c = chars[i];
+
+			if (discardedChars.contains(c))
+				continue;
+
+			for (int j = i + 1; j < chars.length; j++) {
+				if (c == chars[j]) { // match found
+					discardedChars.add(c);
+					break;
+				} else if (j == chars.length - 1) { // no match found till end
+					return c;
+				}
+			}
+		}
+		return null;
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+8]
+public class CheckIfStringContainsDigitsOnly {
+    public static void main(String[] args) {
+		digitsOnlyString("111");
+		digitsOnlyString("111a 1");
+		digitsOnlyString("111 222");
+		digitsOnlyString("111L");
+
+	}
+
+	private static void digitsOnlyString(String string) {
+		if(string.matches("\\d+")) System.out.println("Digit Only String ::"+string);
+		
+		try {
+			long l = Long.parseLong(string);
+			System.out.println("Digit Only String ::"+string);
+		}catch(Exception e){
+			System.out.println("Non Digit Only String ::"+string);
+		}
+		
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
