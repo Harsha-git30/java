@@ -165,3 +165,110 @@ Linked List after Deletion of 1:");
         llist.printList();
     }
 }
+--------------------------------------------------------------------------------------------------------
+5]
+package com.mycompany.collections;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Collections;
+
+public class ListSearch {
+
+    // Binary search method for ArrayList
+    static boolean binarySearch(int key, ArrayList<Integer> list) {
+        if (list == null || list.isEmpty()) {
+            return false;
+        }
+
+        int low = 0;
+        int high = list.size() - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int value = list.get(mid);
+
+            if (value == key) {
+                return true;
+            } else if (value < key) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        // Using ArrayList
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        Collections.addAll(arrayList, 1, 2, 3, 4, 6, 7, 8, 9);
+
+        int key1 = 19;
+        System.out.println("Search " + key1 + " in ArrayList: " + binarySearch(key1, arrayList)); // false
+
+        int key2 = 2;
+        System.out.println("Search " + key2 + " in ArrayList: " + binarySearch(key2, arrayList)); // true
+
+        // Using LinkedList (converted to ArrayList for binary search)
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        Collections.addAll(linkedList, 1, 2, 3, 4, 6, 7, 8, 9);
+
+        ArrayList<Integer> convertedList = new ArrayList<>(linkedList);
+
+        int key3 = 6;
+        System.out.println("Search " + key3 + " in LinkedList (converted): " + binarySearch(key3, convertedList)); // true
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------
+6]
+package com.mycompany.collections;
+
+import java.util.*;
+
+public class Sort {
+
+    public static void main(String[] args) {
+
+
+        ArrayList<String> al = new ArrayList<String>();
+        al.add("Harsha");
+        al.add("Friends");
+        al.add("Dear");
+        al.add("Is");
+        al.add("Superb");
+
+        java.util.Collections.sort(al);
+
+        System.out.println("List after the use of Collection.sort():\n" + al);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+7]
+package com.mycompany.collections;
+
+import java.util.*;
+
+public class ReverseSort {
+
+    public static void main(String[] args) {
+
+        ArrayList<Integer> al = new ArrayList<Integer>();
+
+        // Custom input integer elements
+        al.add(30);
+        al.add(20);
+        al.add(10);
+        al.add(40);
+        al.add(50);
+
+        // Sort in descending order
+        java.util.Collections.sort(al, java.util.Collections.reverseOrder());
+
+        // Print the sorted list
+        System.out.println(
+            "List after the use of Collections.reverseOrder() and Collections.sort():\n" + al);
+    }
+}
+
