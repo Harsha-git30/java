@@ -1,0 +1,94 @@
+1]
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.map;
+
+/**
+ *
+ * @author Harshavardhan
+ */
+import java.util.*;
+
+public class SetsOperation {
+
+
+  
+    public static void main(String args[])
+    {
+ 
+        Set<Integer> a = new HashSet<Integer>();
+      
+        a.addAll(Arrays.asList(
+            new Integer[] { 1, 3, 2, 4, 8, 9, 0 }));
+      
+        Set<Integer> b = new HashSet<Integer>();
+        
+      b.addAll(Arrays.asList(
+            new Integer[] { 1, 3, 7, 5, 4, 0, 7, 5 }));
+
+        
+        Set<Integer> u = new HashSet<Integer>(a);
+        u.addAll(b);
+        System.out.print("Union of the two Set");
+        System.out.println(u);
+
+        Set<Integer> i = new HashSet<Integer>(a);
+        i.retainAll(b);
+        System.out.print("Intersection of the two Set");
+        System.out.println(i);
+
+        Set<Integer> d = new HashSet<Integer>(a);
+        d.removeAll(b);
+        System.out.print("Difference of the two Set");
+        System.out.println(d);
+    }
+}
+   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+2]
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.map;
+
+/**
+ *
+ * @author Harshavardhan
+ */
+import java.util.*;
+
+public class HashSetDemo {
+
+    public static void main(String[] args) {
+
+        // ✅ Correct usage of java.util.HashSet
+        Set<String> h = new HashSet<>();
+
+        // Adding elements to the HashSet using add() method
+        h.add("India");
+        h.add("Australia");
+        h.add("South Africa");
+
+        // Adding duplicate element (will not be added)
+        h.add("India");
+
+        // Displaying the HashSet
+        System.out.println("HashSet contents:");
+        System.out.println(h);
+
+        // Removing an element
+        h.remove("Australia");
+        System.out.println("Set after removing Australia:");
+        System.out.println(h);
+
+        // Iterating over the set using Iterator
+        System.out.println("Iterating over set:");
+        Iterator<String> i = h.iterator();
+        while (i.hasNext()) {
+            System.out.println(i.next());
+        }
+    }
+}
